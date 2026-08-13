@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="googlebot" content="noindex,nofollow">
+<title>Implex · Leads para atender</title>
+<style>
+  :root{
+    --page:#F4F7F7; --card:#FFFFFF; --ink:#0E2321; --ink2:#4A625F; --muted:#7E9591;
+    --line:#DFE8E7; --brand:#0A5C53; --brand2:#0E7C70; --brand-soft:#E4F1EF;
+    --quente:#B3401A; --quente-bg:#FDEEE8; --quente-bd:#F3CDBD;
+    --morno:#8A6D1F; --morno-bg:#FBF3DF; --morno-bd:#EBDCB4;
+    --frio:#4A625F; --frio-bg:#EEF3F2; --frio-bd:#DDE7E5;
+    --zap:#1EA855;
+    --sh:0 1px 2px rgba(14,35,33,.05), 0 10px 26px -16px rgba(10,92,83,.35);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --page:#08130F; --card:#0F1F1B; --ink:#E8F2F0; --ink2:#A9C0BC; --muted:#7E9591;
+      --line:#1E332E; --brand:#0E7C70; --brand2:#2FB3A4; --brand-soft:#122A26;
+      --quente:#F09372; --quente-bg:#2A1610; --quente-bd:#4A2718;
+      --morno:#E0C069; --morno-bg:#241E0E; --morno-bd:#443917;
+      --frio:#A9C0BC; --frio-bg:#152522; --frio-bd:#223B36;
+      --sh:0 1px 2px rgba(0,0,0,.4), 0 10px 26px -16px rgba(0,0,0,.7);
+    }
+  }
+  :root[data-theme="dark"]{
+    --page:#08130F; --card:#0F1F1B; --ink:#E8F2F0; --ink2:#A9C0BC; --muted:#7E9591;
+    --line:#1E332E; --brand:#0E7C70; --brand2:#2FB3A4; --brand-soft:#122A26;
+    --quente:#F09372; --quente-bg:#2A1610; --quente-bd:#4A2718;
+    --morno:#E0C069; --morno-bg:#241E0E; --morno-bd:#443917;
+    --frio:#A9C0BC; --frio-bg:#152522; --frio-bd:#223B36;
+    --sh:0 1px 2px rgba(0,0,0,.4), 0 10px 26px -16px rgba(0,0,0,.7);
+  }
+  :root[data-theme="light"]{
+    --page:#F4F7F7; --card:#FFFFFF; --ink:#0E2321; --ink2:#4A625F; --muted:#7E9591;
+    --line:#DFE8E7; --brand:#0A5C53; --brand2:#0E7C70; --brand-soft:#E4F1EF;
+    --quente:#B3401A; --quente-bg:#FDEEE8; --quente-bd:#F3CDBD;
+    --morno:#8A6D1F; --morno-bg:#FBF3DF; --morno-bd:#EBDCB4;
+    --frio:#4A625F; --frio-bg:#EEF3F2; --frio-bd:#DDE7E5;
+    --sh:0 1px 2px rgba(14,35,33,.05), 0 10px 26px -16px rgba(10,92,83,.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--page);color:var(--ink);
+    font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:0 16px 48px}
+  :focus-visible{outline:2px solid var(--brand2);outline-offset:2px;border-radius:8px}
+
+  header.top{background:linear-gradient(140deg,#07423B,var(--brand) 60%,var(--brand2) 140%);
+    color:#fff;padding:20px 0 30px;box-shadow:var(--sh)}
+  .top .wrap{padding-bottom:0}
+  .top h1{font-size:19px;font-weight:700;letter-spacing:-.01em}
+  .top .sub{font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    color:rgba(255,255,255,.6);margin-top:3px}
+  .stamp{margin-top:12px;display:inline-flex;align-items:center;gap:7px;font-size:12.5px;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+    border-radius:999px;padding:6px 13px;color:rgba(255,255,255,.9)}
+  .stamp .dot{width:7px;height:7px;border-radius:50%;background:#7CE9A8}
+
+  .resumo{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:-16px 0 16px}
+  .r{background:var(--card);border:1px solid var(--line);border-radius:13px;
+    padding:13px 14px;box-shadow:var(--sh)}
+  .r b{display:block;font-size:25px;line-height:1.1;font-variant-numeric:tabular-nums}
+  .r span{font-size:11.5px;color:var(--ink2)}
+  .r.q b{color:var(--quente)}
+
+  .filtros{display:flex;gap:7px;margin-bottom:14px;flex-wrap:wrap}
+  .filtros button{all:unset;cursor:pointer;padding:8px 14px;border-radius:999px;
+    font-size:13px;font-weight:600;color:var(--ink2);
+    background:var(--card);border:1px solid var(--line)}
+  .filtros button[aria-pressed="true"]{background:var(--brand);color:#fff;border-color:transparent}
+
+  .lead{background:var(--card);border:1px solid var(--line);border-radius:15px;
+    padding:15px 16px;box-shadow:var(--sh);margin-bottom:11px}
+  .lead.feito{opacity:.5}
+  .lead .l1{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+  .lead h2{font-size:16.5px;font-weight:700;letter-spacing:-.01em;line-height:1.25}
+  .lead .quando{font-size:12px;color:var(--muted);margin-top:2px}
+  .tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+    padding:4px 10px;border-radius:999px;white-space:nowrap;flex:0 0 auto}
+  .tag.quente{background:var(--quente-bg);color:var(--quente);border:1px solid var(--quente-bd)}
+  .tag.morno{background:var(--morno-bg);color:var(--morno);border:1px solid var(--morno-bd)}
+  .tag.frio{background:var(--frio-bg);color:var(--frio);border:1px solid var(--frio-bd)}
+
+  .respostas{display:flex;flex-direction:column;gap:5px;margin:11px 0 13px;
+    padding:11px 12px;background:var(--brand-soft);border-radius:10px}
+  .respostas div{font-size:13px;color:var(--ink2)}
+  .respostas b{color:var(--ink);font-weight:600}
+
+  .acoes{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .btn{all:unset;cursor:pointer;text-align:center;font-weight:700;font-size:14px;
+    padding:11px 16px;border-radius:11px;flex:1 1 auto;min-width:150px}
+  .btn.zap{background:var(--zap);color:#fff}
+  .btn.tel{background:var(--card);color:var(--ink);border:1px solid var(--line);
+    font-variant-numeric:tabular-nums}
+  .btn.ok{background:transparent;color:var(--ink2);border:1px dashed var(--line);
+    flex:0 0 auto;min-width:0;font-size:13px;font-weight:600;padding:11px 14px}
+  .lead.feito .btn.ok{border-style:solid;color:var(--brand2);border-color:var(--brand2)}
+
+  .vazio{text-align:center;color:var(--muted);padding:44px 20px;font-size:14px}
+  .nota{margin-top:22px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;
+    background:var(--card);color:var(--ink2);font-size:12.5px;line-height:1.6}
+  .nota b{color:var(--ink)}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <h1>Leads para atender</h1>
+    <div class="sub">Implex Odontologia · Implante</div>
+    <div class="stamp"><span class="dot"></span>Atualizado 13/08/2026 às 13:52</div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="resumo">
+    <div class="r"><b>11</b><span>leads no total</span></div>
+    <div class="r q"><b>3</b><span>querem começar já</span></div>
+    <div class="r"><b>1</b><span>chegaram hoje</span></div>
+  </div>
+
+  <div class="filtros" role="group" aria-label="Filtrar leads">
+    <button data-f="todos" aria-pressed="true">Todos</button>
+    <button data-f="quente" aria-pressed="false">Prioridade</button>
+    <button data-f="abertos" aria-pressed="false">Não atendidos</button>
+  </div>
+
+  <div id="lista"></div>
+
+  <p class="nota">
+    <b>Como usar:</b> toque em <b>Chamar no WhatsApp</b> que a conversa abre com a mensagem
+    pronta. Depois marque <b>Atendido</b> pra não ligar duas vezes.<br>
+    O <b>Atendido</b> fica salvo só neste aparelho — cada pessoa marca no seu.<br>
+    A página se atualiza sozinha a cada hora, e sozinha na tela a cada 5 minutos.
+  </p>
+</div>
+
+<script>
+const LEADS = [{"id": "1400234145505585", "nome": "Gisele Ruiz Campos", "tel": "5544984622364", "situacao": "Só quer informações", "prazo": "Nos próximos meses", "temp": "frio", "ts": "2026-08-13T13:00:14-03:00", "quando": "13/08/2026 às 13:00", "fmt": "(44) 98462-2364"}, {"id": "2300398517160734", "nome": "Claudio leite da Silva", "tel": "5544999689112", "situacao": "Falta 1 ou 2 dentes", "prazo": "O quanto antes", "temp": "morno", "ts": "2026-08-12T21:13:29-03:00", "quando": "12/08/2026 às 21:13", "fmt": "(44) 99968-9112"}, {"id": "1914929976161290", "nome": "Eduardo Pinheiro", "tel": "5544984342891", "situacao": "Faltam vários dentes", "prazo": "Nos próximos meses", "temp": "morno", "ts": "2026-08-12T07:20:50-03:00", "quando": "12/08/2026 às 07:20", "fmt": "(44) 98434-2891"}, {"id": "895291343568614", "nome": "Givanildo Alves da Silva", "tel": "554498638920", "situacao": "Faltam vários dentes", "prazo": "O quanto antes", "temp": "quente", "ts": "2026-08-11T20:14:59-03:00", "quando": "11/08/2026 às 20:14", "fmt": "(44) 9863-8920"}, {"id": "1577721253886216", "nome": "Ildefonso Junior", "tel": "5543991171818", "situacao": "Faltam vários dentes", "prazo": "Nos próximos meses", "temp": "morno", "ts": "2026-08-11T15:34:01-03:00", "quando": "11/08/2026 às 15:34", "fmt": "(43) 99117-1818"}, {"id": "1402798378709045", "nome": "Vinicius Augusto de Souza", "tel": "5544999340238", "situacao": "Usa dentadura ou prótese removível", "prazo": "O quanto antes", "temp": "quente", "ts": "2026-08-11T11:43:54-03:00", "quando": "11/08/2026 às 11:43", "fmt": "(44) 99934-0238"}, {"id": "1719835815726714", "nome": "Fernanda Cristina Vicentine", "tel": "5544998429572", "situacao": "Usa dentadura ou prótese removível", "prazo": "Só pesquisando", "temp": "frio", "ts": "2026-08-11T10:32:53-03:00", "quando": "11/08/2026 às 10:32", "fmt": "(44) 99842-9572"}, {"id": "4731496450407517", "nome": "Francisco CARLOS Rodrigues", "tel": "5544999770075", "situacao": "Usa dentadura ou prótese removível", "prazo": "O quanto antes", "temp": "quente", "ts": "2026-08-11T05:06:00-03:00", "quando": "11/08/2026 às 05:06", "fmt": "(44) 99977-0075"}, {"id": "4509857692604027", "nome": "Arlete Moreira Delai", "tel": "5521979000886", "situacao": "Faltam vários dentes", "prazo": "Nos próximos meses", "temp": "morno", "ts": "2026-08-10T23:01:18-03:00", "quando": "10/08/2026 às 23:01", "fmt": "(21) 97900-0886"}, {"id": "1035380335930493", "nome": "Eliane Furcho", "tel": "5544984486794", "situacao": "Falta 1 ou 2 dentes", "prazo": "O quanto antes", "temp": "morno", "ts": "2026-08-10T19:16:25-03:00", "quando": "10/08/2026 às 19:16", "fmt": "(44) 98448-6794"}, {"id": "1599849398477044", "nome": "Maria Cleusa Silva", "tel": "5544997553630", "situacao": "Só quer informações", "prazo": "Só pesquisando", "temp": "frio", "ts": "2026-08-10T19:00:25-03:00", "quando": "10/08/2026 às 19:00", "fmt": "(44) 99755-3630"}];
+const MSG = "Olá! Tudo bem? Aqui é da Implex Odontologia. Recebemos seu contato pelo formulário sobre implante e queremos te ajudar a agendar sua avaliação com o Dr. Roger. Podemos falar por aqui?";
+const CHAVE = 'implex_atendidos';
+
+const lidos = () => {
+  try { return JSON.parse(localStorage.getItem(CHAVE) || '{}'); } catch (e) { return {}; }
+};
+const marcar = (id, v) => {
+  const m = lidos(); if (v) m[id] = 1; else delete m[id];
+  try { localStorage.setItem(CHAVE, JSON.stringify(m)); } catch (e) {}
+};
+
+const esc = s => String(s).replace(/[&<>"']/g, c =>
+  ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+
+let filtro = 'todos';
+
+function desenhar() {
+  const m = lidos();
+  const alvo = LEADS.filter(l => {
+    if (filtro === 'quente') return l.temp === 'quente';
+    if (filtro === 'abertos') return !m[l.id];
+    return true;
+  });
+  const lista = document.getElementById('lista');
+
+  if (!alvo.length) {
+    lista.innerHTML = '<p class="vazio">Nenhum lead nesse filtro.</p>';
+    return;
+  }
+
+  lista.innerHTML = alvo.map(l => {
+    const feito = !!m[l.id];
+    const wa = l.tel ? 'https://wa.me/' + l.tel + '?text=' + encodeURIComponent(MSG) : '';
+    const rotulo = {quente: 'Prioridade', morno: 'Interessado', frio: 'Só informação'}[l.temp];
+    return `
+      <article class="lead ${feito ? 'feito' : ''}" data-id="${esc(l.id)}">
+        <div class="l1">
+          <div>
+            <h2>${esc(l.nome || 'Sem nome')}</h2>
+            <div class="quando">Chegou ${esc(l.quando)}</div>
+          </div>
+          <span class="tag ${l.temp}">${rotulo}</span>
+        </div>
+        <div class="respostas">
+          <div>Situação: <b>${esc(l.situacao)}</b></div>
+          <div>Quer começar: <b>${esc(l.prazo)}</b></div>
+        </div>
+        <div class="acoes">
+          ${wa ? `<a class="btn zap" href="${wa}" target="_blank" rel="noopener">Chamar no WhatsApp</a>` : ''}
+          ${l.tel ? `<a class="btn tel" href="tel:+${esc(l.tel)}">${esc(l.fmt)}</a>` : ''}
+          <button class="btn ok" data-ok="${esc(l.id)}">${feito ? '✓ Atendido' : 'Marcar atendido'}</button>
+        </div>
+      </article>`;
+  }).join('');
+}
+
+document.querySelectorAll('.filtros button').forEach(b => {
+  b.addEventListener('click', () => {
+    filtro = b.dataset.f;
+    document.querySelectorAll('.filtros button').forEach(o =>
+      o.setAttribute('aria-pressed', String(o === b)));
+    desenhar();
+  });
+});
+
+document.getElementById('lista').addEventListener('click', e => {
+  const btn = e.target.closest('[data-ok]');
+  if (!btn) return;
+  const id = btn.dataset.ok;
+  marcar(id, !lidos()[id]);
+  desenhar();
+});
+
+desenhar();
+setTimeout(() => location.reload(), 5 * 60 * 1000);
+</script>
+</body>
+</html>
